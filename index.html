@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Autos - Premium Cars</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> All Autos</h1>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li class="dropdown">
+                        <a href="#cars" class="nav-link dropdown-toggle">Cars <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#luxury">Luxury Cars</a></li>
+                            <li><a href="#sports">Sports Cars</a></li>
+                            <li><a href="#suv">SUV & Trucks</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#cars" onclick="closeMobileMenu()">Cars</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+        <main class="main">
+            <section class="hero">
+                <h1 class="hero-title">Premium Car Collection</h1>
+                <h2 class="hero-subtitle">Discover luxury, sports and family vehicles</h2>
+                <p class="hero-text">Explore our extensive collection of premium automobiles from world-renowned manufacturers.</p>
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=400&fit=crop" alt="Luxury Car" class="hero-image">
+            </section>
+
+            <section class="cards-section">
+                <h2 class="section-title">Car Categories</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=250&fit=crop" alt="Luxury Cars" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Luxury Cars</h3>
+                            <p class="card-description">Experience ultimate comfort and prestige with our premium luxury vehicle collection.</p>
+                            <button class="card-button" onclick="openModal('modal1')">View Cars</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=250&fit=crop" alt="Sports Cars" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Sports Cars</h3>
+                            <p class="card-description">Feel the thrill with high-performance sports cars designed for speed and excitement.</p>
+                            <button class="card-button" onclick="openModal('modal2')">View Cars</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=250&fit=crop" alt="SUV & Trucks" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">SUV & Trucks</h3>
+                            <p class="card-description">Reliable and spacious vehicles perfect for families and outdoor adventures.</p>
+                            <button class="card-button" onclick="openModal('modal3')">View Cars</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>Car Reviews</h3>
+                <ul class="sidebar-list">
+                    <li><a href="#review1">2024 BMW X7 Review</a></li>
+                    <li><a href="#review2">Mercedes S-Class Features</a></li>
+                    <li><a href="#review3">Porsche 911 Performance</a></li>
+                    <li><a href="#review4">Tesla Model S Technology</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>&copy; 2025 Katane Project. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Luxury Cars</h2>
+            <p>Our luxury car collection features:</p>
+            <ul>
+                <li>BMW 7 Series, X7, iX</li>
+                <li>Mercedes S-Class, GLS, EQS</li>
+                <li>Audi A8, Q8, e-tron GT</li>
+                <li>Lexus LS, LX, LC</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>Sports Cars</h2>
+            <p>High-performance sports cars:</p>
+            <ul>
+                <li>Porsche 911, Cayman, Taycan</li>
+                <li>BMW M3, M4, i8</li>
+                <li>Mercedes AMG GT, C63, E63</li>
+                <li>Audi RS6, RS7, R8</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>SUV & Trucks</h2>
+            <p>Family and adventure vehicles:</p>
+            <ul>
+                <li>BMW X5, X7, iX3</li>
+                <li>Mercedes GLE, GLS, G-Class</li>
+                <li>Audi Q7, Q8, e-tron</li>
+                <li>Volvo XC90, XC60, XC40</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
