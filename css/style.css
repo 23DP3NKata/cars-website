@@ -7,7 +7,7 @@
     --text-gray: #6b7280;
     --border-color: #e5e7eb;
     --card-bg: #ffffff;
-    --shadow-color: rgba(220, 38, 38, 0.1);
+    /* --shadow-color: rgba(220, 38, 38, 0.1); */
 }
 
 
@@ -20,7 +20,7 @@
     --text-gray: #d1d5db;
     --border-color: #404040;
     --card-bg: #2d2d2d;
-    --shadow-color: rgba(220, 38, 38, 0.3);
+    /* --shadow-color: rgba(220, 38, 38, 0.3); */
 }
 
 * {
@@ -47,7 +47,7 @@ body {
 
 .header {
     background-color: var(--secondary-bg);
-    border-bottom: 2px solid var(--accent-red);
+    /* border-bottom: 2px solid var(--accent-red); */
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -84,7 +84,8 @@ body {
     font-weight: 500;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: var(--light-red);
 }
 
@@ -250,7 +251,6 @@ body {
     height: 400px;
     object-fit: cover;
     border-radius: 10px;
-    border: 2px solid var(--accent-red);
 }
 
 
@@ -329,7 +329,7 @@ body {
     flex-shrink: 0;
     height: fit-content;
     position: sticky;
-    top: calc(70px + 2rem); /* высота хедера + отступ */
+    top: calc(70px + 2rem);
 }
 
 .sidebar-content {
@@ -361,7 +361,7 @@ body {
 
 .footer {
     background-color: var(--secondary-bg);
-    border-top: 2px solid var(--accent-red);
+    /* border-top: 2px solid var(--accent-red); */
     padding: 2rem 0;
     margin-top: 3rem;
     transition: background-color 0.3s;

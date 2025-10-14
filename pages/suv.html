@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUV & Trucks - All Autos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> All Autos</h1>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li class="dropdown">
+                        <a href="cars.html" class="nav-link dropdown-toggle">Cars <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury.html">Luxury Cars</a></li>
+                            <li><a href="sports.html">Sports Cars</a></li>
+                            <li><a href="suv.html" class="active">SUV & Trucks</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+            <li><a href="../index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="cars.html" onclick="closeMobileMenu()">Cars</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+        <main class="main">
+            <section class="hero">
+                <h1 class="hero-title">SUV & Trucks</h1>
+                <h2 class="hero-subtitle">Space, comfort, and capability</h2>
+                <p class="hero-text">Perfect for families and adventures, our SUV and truck collection offers reliability, space, and versatility for every journey.</p>
+                <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=400&fit=crop" alt="SUV & Trucks" class="hero-image">
+            </section>
+
+            <section class="cards-section">
+                <h2 class="section-title">Family & Adventure Collection</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2025-bmw-x7-101-65d51e47938f4.jpg?crop=0.783xw:0.587xh;0.0830xw,0.341xh&resize=1200:*" alt="BMW X7" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">BMW X7</h3>
+                            <p class="card-description">The ultimate luxury SUV with seven seats and commanding presence.</p>
+                            <button class="card-button">Learn More</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://lescape.pl/media/cache/bb/3b/bb3b70190e422e32ba3ed893b22ab6da.webp" alt="Mercedes GLS" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Mercedes GLS</h3>
+                            <p class="card-description">The S-Class of SUVs, combining luxury with off-road capability.</p>
+                            <button class="card-button">Learn More</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://i.ytimg.com/vi/xE6iyiQr7Oc/maxresdefault.jpg" alt="Audi Q8" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Audi Q8</h3>
+                            <p class="card-description">Sporty SUV design with advanced technology and premium comfort.</p>
+                            <button class="card-button">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>SUV Features</h3>
+                <ul class="sidebar-list">
+                    <li>Spacious Interior</li>
+                    <li>All-Wheel Drive</li>
+                    <li>Advanced Safety Features</li>
+                    <li>Large Cargo Space</li>
+                    <li>Off-Road Capability</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>&copy; 2025 Katane Project. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

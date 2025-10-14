@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Cars - All Autos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> All Autos</h1>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li class="dropdown">
+                        <a href="cars.html" class="nav-link dropdown-toggle">Cars <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury.html">Luxury Cars</a></li>
+                            <li><a href="sports.html" class="active">Sports Cars</a></li>
+                            <li><a href="suv.html">SUV & Trucks</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+            <li><a href="../index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="cars.html" onclick="closeMobileMenu()">Cars</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+        <main class="main">
+            <section class="hero">
+                <h1 class="hero-title">Sports Cars</h1>
+                <h2 class="hero-subtitle">Feel the thrill of high performance</h2>
+                <p class="hero-text">Our sports car collection features high-performance vehicles designed for speed, agility, and pure driving excitement.</p>
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=400&fit=crop" alt="Sports Cars" class="hero-image">
+            </section>
+
+            <section class="cards-section">
+                <h2 class="section-title">Performance Collection</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <img src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/2024/Products/992-II/0840_nevada_coupe_u-crane_AKOS0607_edit_V03-sky.jpg/jcr:content/0840_nevada_coupe_u-crane_AKOS0607_edit_V03-sky.jpg" alt="Porsche 911" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Porsche 911</h3>
+                            <p class="card-description">The iconic sports car with legendary performance and timeless design.</p>
+                            <button class="card-button">Learn More</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://www.goodwood.com/globalassets/.road--racing/reviews/bmw/m4-fd-dec-21-new-pics/bmw-m4-cometition-review-03122101.jpg?rxy=0.5,0.5" alt="BMW M4" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">BMW M4</h3>
+                            <p class="card-description">Pure driving dynamics with track-bred performance and technology.</p>
+                            <button class="card-button">Learn More</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://carwow-uk-wp-3.imgix.net/GT-Roadster-driving-front.jpg" alt="Mercedes AMG GT" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Mercedes AMG GT</h3>
+                            <p class="card-description">Racing-inspired performance with luxury and sophisticated engineering.</p>
+                            <button class="card-button">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>Performance Features</h3>
+                <ul class="sidebar-list">
+                    <li>High-Performance Engines</li>
+                    <li>Advanced Suspension</li>
+                    <li>Sport Exhaust Systems</li>
+                    <li>Racing-Inspired Design</li>
+                    <li>Track-Ready Technology</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>&copy; 2025 Katane Project. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

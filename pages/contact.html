@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - All Autos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> All Autos</h1>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li class="dropdown">
+                        <a href="cars.html" class="nav-link dropdown-toggle">Cars <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="luxury.html">Luxury Cars</a></li>
+                            <li><a href="sports.html">Sports Cars</a></li>
+                            <li><a href="suv.html">SUV & Trucks</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+            <li><a href="../index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="cars.html" onclick="closeMobileMenu()">Cars</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+        <main class="main">
+            <section class="hero">
+                <h1 class="hero-title">Contact Us</h1>
+                <h2 class="hero-subtitle">Get in touch with our team</h2>
+                <p class="hero-text">Have questions about our vehicles? Need assistance? We're here to help you find your perfect car.</p>
+            </section>
+
+            <section class="cards-section">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-phone"></i> Phone</h3>
+                            <p class="card-description">+371 61111111<br>Available 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-envelope"></i> Email</h3>
+                            <p class="card-description">info@allautos.com<br>sales@allautos.com</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-map-marker-alt"></i> Address</h3>
+                            <p class="card-description">Tērbatas iela 2</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>Business Hours</h3>
+                <ul class="sidebar-list">
+                    <li>Monday - Friday: 9:00 - 20:00</li>
+                    <li>Saturday: 9:00 - 18:00</li>
+                    <li>Sunday: 11:00 - 17:00</li>
+                    <li>Holidays: Closed</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>&copy; 2025 Katane Project. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
