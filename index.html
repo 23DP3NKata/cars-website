@@ -64,7 +64,19 @@
 
             <section class="cards-section">
                 <h2 class="section-title">Car Categories</h2>
-                <div class="cards-container">
+                
+                <!-- Search Box -->
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search for cars..."
+                        onkeyup="filterCards()">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                
+                <div class="cards-container" id="cardsContainer">
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=250&fit=crop" alt="Luxury Cars" class="card-image">
                         <div class="card-content">
