@@ -1,4 +1,3 @@
-// Dark Mode Toggle
 function toggleDarkMode() {
     const body = document.body;
     const currentTheme = body.getAttribute('data-theme');
@@ -7,12 +6,12 @@ function toggleDarkMode() {
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
-    // Update icon
     const icon = document.querySelector('.dark-mode-toggle i');
     icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 }
 
-// Load saved theme
+// ---------
+
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.setAttribute('data-theme', savedTheme);
@@ -23,7 +22,6 @@ function loadTheme() {
     }
 }
 
-// Mobile Menu Toggle
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
@@ -31,7 +29,6 @@ function toggleMobileMenu() {
     mobileMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
     
-    // Prevent body scroll when menu is open
     document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
 }
 
@@ -44,7 +41,7 @@ function closeMobileMenu() {
     document.body.style.overflow = '';
 }
 
-// Modal Functions
+
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     modal.style.display = 'block';
@@ -57,7 +54,6 @@ function closeModal(modalId) {
     document.body.style.overflow = '';
 }
 
-// Close modal when clicking outside
 window.onclick = function(event) {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => {
@@ -67,7 +63,6 @@ window.onclick = function(event) {
     });
 }
 
-// Smooth scrolling for navigation links
 function setupSmoothScrolling() {
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
@@ -79,10 +74,9 @@ function setupSmoothScrolling() {
     });
 }
 
-// Handle keyboard navigation
+
 function setupKeyboardNavigation() {
     document.addEventListener('keydown', (e) => {
-        // Close modal with Escape key
         if (e.key === 'Escape') {
             const openModals = document.querySelectorAll('.modal[style*="block"]');
             openModals.forEach(modal => {
@@ -93,14 +87,14 @@ function setupKeyboardNavigation() {
     });
 }
 
-// Initialize everything when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', function() {
     loadTheme();
     setupSmoothScrolling();
     setupKeyboardNavigation();
 });
 
-// Handle window resize
+
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
         closeMobileMenu();
