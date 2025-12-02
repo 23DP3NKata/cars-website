@@ -164,7 +164,6 @@ function getWeatherByCity() {
 function displayWeather(data, placeName) {
     const temp = data.current?.temperature_2m;
     const code = data.current?.weathercode;
-    const wind = data.current?.windspeed_10m;
     const desc = getWeatherDesc(code);
     const icon = getWeatherIcon(code);
 
@@ -173,9 +172,6 @@ function displayWeather(data, placeName) {
             <div class="weather-icon">${icon}</div>
             <h3>${placeName || 'Location'}</h3>
             <div class="weather-temp">${temp}°C</div>
-            <div class="weather-desc">${desc}</div>
-            <div class="weather-wind">Wind: ${wind} km/h</div>
-            <div class="weather-time">Updated: ${new Date().toLocaleTimeString()}</div>
         </div>
     `;
     document.getElementById('weatherContainer').innerHTML = html;
