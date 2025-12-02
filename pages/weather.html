@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Cars - All Autos</title>
+    <title>Weather Dashboard - All Autos</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -21,13 +21,13 @@
                     <li class="dropdown">
                         <a href="cars.html" class="nav-link dropdown-toggle">Cars <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="luxury.html" class="active">Luxury Cars</a></li>
+                            <li><a href="luxury.html">Luxury Cars</a></li>
                             <li><a href="sports.html">Sports Cars</a></li>
                             <li><a href="suv.html">SUV & Trucks</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li><a href="weather.html" class="nav-link">Weather</a></li>
+                    <li><a href="weather.html" class="nav-link active">Weather</a></li>
                 </ul>
             </nav>
 
@@ -58,55 +58,31 @@
     <div class="content-wrapper">
         <main class="main">
             <section class="hero">
-                <h1 class="hero-title">Luxury Cars</h1>
-                <h2 class="hero-subtitle">Experience ultimate comfort and prestige</h2>
-                <p class="hero-text">Our luxury collection features the finest vehicles from premium manufacturers, offering unparalleled comfort and sophistication.</p>
-                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=400&fit=crop" alt="Luxury Cars" class="hero-image">
+                <h1 class="hero-title">Weather Dashboard</h1>
+                <h2 class="hero-subtitle">Riga, Latvia</h2>
+                <p class="hero-text">Get real-time weather information for your location</p>
             </section>
 
             <section class="cards-section">
-                <h2 class="section-title">Premium Collection</h2>
-                <div class="cards-container">
-                    <div class="card">
-                        <img src="https://www.topgear.com/sites/default/files/2023/08/P90492179_highRes_bmw-i7-xdrive60-m-sp%20%281%29.jpg" alt="BMW 7 Series" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">BMW 7 Series</h3>
-                            <p class="card-description">The flagship BMW sedan with cutting-edge technology and luxury features.</p>
-                            <button class="card-button">Learn More</button>
-                        </div>
-                    </div>
+                <div style="text-align: center; margin-bottom: 30px; display:flex; gap:10px; justify-content:center; align-items:center;">
+                    <input id="cityInput" class="search-input" type="text" placeholder="Enter city (e.g., Riga)" style="max-width:300px;">
+                    <button id="weatherBtn" class="weather-button" onclick="getWeatherByCity()">
+                        <i class="fas fa-cloud-sun"></i> Get Weather
+                    </button>
+                </div>
 
-                    <div class="card">
-                        <img src="https://media.ed.edmunds-media.com/mercedes-benz/s-class/2025/oem/2025_mercedes-benz_s-class_sedan_amg-s-63-e-performance_fq_oem_1_1600.jpg" alt="Mercedes S-Class" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">Mercedes S-Class</h3>
-                            <p class="card-description">The pinnacle of luxury and innovation in the automotive world.</p>
-                            <button class="card-button">Learn More</button>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/a218141-medium-1635867809.jpg?crop=0.777xw:0.655xh;0.115xw,0.209xh&resize=1200:*" alt="Audi A8" class="card-image">
-                        <div class="card-content">
-                            <h3 class="card-title">Audi A8</h3>
-                            <p class="card-description">Progressive luxury with advanced driver assistance and comfort features.</p>
-                            <button class="card-button">Learn More</button>
-                        </div>
-                    </div>
+                <div id="weatherContainer" class="weather-container">
+                    <p style="text-align: center; color: var(--text-gray);">Enter a city and click Get Weather</p>
                 </div>
             </section>
         </main>
 
         <aside class="sidebar">
             <div class="sidebar-content">
-                <h3>Luxury Features</h3>
-                <ul class="sidebar-list">
-                    <li>Premium Leather Interior</li>
-                    <li>Advanced Infotainment</li>
-                    <li>Massage Seats</li>
-                    <li>Panoramic Sunroof</li>
-                    <li>Premium Sound System</li>
-                </ul>
+                <h3>Search History</h3>
+                <div id="searchHistory">
+                    <p>No search history</p>
+                </div>
             </div>
         </aside>
     </div>
