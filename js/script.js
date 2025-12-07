@@ -119,90 +119,48 @@ function filterCards() {
 }
 
 
+//
 
 
-
-function getWeatherByCity() {
+function searchGitHubUsers() {
     const btn = document.getElementById('weatherBtn');
-    const city = (document.getElementById('cityInput')?.value || '').trim();
+    const query = (document.getElementById('cityInput')?.value || '').trim();
     const container = document.getElementById('weatherContainer');
 
-    if (!city) {
-        container.innerHTML = '<div class="error-box">Please enter a city</div>';
+    if (!query) {
+        container.innerHTML = '<div class="error-box">Please enter a search term</div>';
         return;
     }
 
     btn.disabled = true;
     btn.textContent = 'Loading...';
 
-    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`)
-        .then(r => { if (!r.ok) throw new Error('Geocoding failed'); return r.json(); })
-        .then(geo => {
-            if (!geo.results || geo.results.length === 0) throw new Error('City not found');
-            const g = geo.results[0];
-            const lat = g.latitude;
-            const lon = g.longitude;
-            const displayName = `${g.name}${g.country ? ', ' + g.country : ''}`;
+    fetch(`https://api.github.com/search/users?q=${encodeURIComponent(query)}`).then(r => { if (!r.ok) throw new Error('API error'); return r.json(); }).then(json => {
+            const items = Array.isArray(json.items) ? json.items.slice(0, 6) : [];
+            if (!items.length) throw new Error('No results');
+            container.innerHTML = items.map(user => `<div class="weather-card fade-in">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <img src="${user.avatar_url}" alt="${user.login}" style="width:56px;height:56px;border-radius:50%;object-fit:cover;">
+                        <div>
+                            <h3>${user.login}</h3>
+                            <a href="${user.html_url}" target="_blank" rel="noopener">View profile</a>
+                        </div>
+                    </div>
+                </div>`).join('');
 
-            return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode,windspeed_10m&timezone=auto`)
-                .then(r => { if (!r.ok) throw new Error('Weather API failed'); return r.json(); })
-                .then(data => ({ data, displayName }));
-        })
-        .then(({ data, displayName }) => {
-            displayWeather(data, displayName);
-            saveSearch(displayName);
+            saveSearch(query);
             btn.disabled = false;
-            btn.textContent = 'Get Weather';
-        })
-        .catch(err => {
-            container.innerHTML = '<div class="error-box">Weather data not available</div>';
+            btn.textContent = 'Search';
+        }).catch(() => {container.innerHTML = '<div class="error-box">Data not available</div>';
             btn.disabled = false;
-            btn.textContent = 'Get Weather';
+            btn.textContent = 'Search';
         });
 }
 
-function displayWeather(data, placeName) {
-    const temp = data.current?.temperature_2m;
-    const code = data.current?.weathercode;
-    const desc = getWeatherDesc(code);
-    const icon = getWeatherIcon(code);
-
-    const html = `
-        <div class="weather-card fade-in">
-            <div class="weather-icon">${icon}</div>
-            <h3>${placeName || 'Location'}</h3>
-            <div class="weather-temp">${temp}°C</div>
-        </div>
-    `;
-    document.getElementById('weatherContainer').innerHTML = html;
-}
-
-function getWeatherDesc(code) {
-    const weather = {
-        0: 'Clear sky', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
-        45: 'Foggy', 48: 'Foggy', 51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavy drizzle',
-        61: 'Light rain', 63: 'Rain', 65: 'Heavy rain', 71: 'Light snow', 73: 'Snow', 75: 'Heavy snow',
-        80: 'Rain showers', 81: 'Rain showers', 82: 'Heavy rain showers', 95: 'Thunderstorm'
-    };
-    return weather[code] || 'Unknown';
-}
-
-function getWeatherIcon(code) {
-    if (code === 0 || code === 1) return '☀️';
-    if (code === 2 || code === 3) return '⛅';
-    if (code >= 45 && code <= 48) return '🌫️';
-    if (code >= 51 && code <= 55) return '🌦️';
-    if (code >= 61 && code <= 65) return '🌧️';
-    if (code >= 71 && code <= 75) return '❄️';
-    if (code >= 80 && code <= 82) return '🌧️';
-    if (code >= 95) return '⛈️';
-    return '🌤️';
-}
-
-function saveSearch(city) {
+function saveSearch(query) {
     let history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
-    history.unshift({ city: city, time: new Date().toLocaleString() });
-    history = history.slice(0, 5);
+    history.unshift(query);
+    history = [...new Set(history)].slice(0, 5);
     localStorage.setItem('searchHistory', JSON.stringify(history));
     displaySearchHistory();
 }
@@ -212,16 +170,12 @@ function displaySearchHistory() {
     const container = document.getElementById('searchHistory');
     if (!container) return;
 
-    if (history.length === 0) {
-        container.innerHTML = '<p>No search history</p>';
+    if (!history.length) {container.innerHTML = '<p>No search history</p>';
         return;
     }
-
-    container.innerHTML = '<h4>Recent Searches:</h4>' + 
-        history.map(item => `<div class="history-item" onclick="fillCity('${item.city}')">${item.city} - ${item.time}</div>`).join('');
+    container.innerHTML = '<h4>Recent Searches:</h4>' + history.map(q => `<div class="history-item" onclick="fillCity('${q}')">${q}</div>`).join('');
 }
 
-function fillCity(city) {
-    const input = document.getElementById('cityInput');
-    if (input) input.value = city;
+function fillCity(query) {const input = document.getElementById('cityInput');
+    if (input) input.value = query;
 }

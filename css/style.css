@@ -668,18 +668,20 @@ body {
 .weather-container {
     min-height: 300px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .weather-card {
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 40px;
+    border-radius: 12px;
+    padding: 16px;
     box-shadow: none;
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
+    text-align: left;
+    width: 320px;
+    border: 1px solid var(--border-color);
 }
 
 .weather-icon {
